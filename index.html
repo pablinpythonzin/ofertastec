@@ -105,6 +105,43 @@ nav {
   color: var(--yellow);
   text-shadow: 0 0 30px rgba(255,224,0,.35);
   cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo img {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 12px rgba(255,224,0,.4));
+}
+.hero-logo {
+  display: block;
+  margin: 0 auto 28px;
+  width: clamp(220px, 38vw, 320px);
+  height: clamp(220px, 38vw, 320px);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 60px rgba(255,224,0,.35));
+  animation: fadeSlideUp .8s ease both, logoFloat 4s ease-in-out infinite;
+}
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.hero-tagline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 22px;
+  animation: fadeSlideUp .8s .15s ease both;
+}
+.hero-tagline span {
+  background: linear-gradient(135deg, var(--yellow), #FF8C00, var(--yellow));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientMove 3s linear infinite;
 }
 .nav-actions { display: flex; gap: 10px; align-items: center; }
 .icon-btn {
@@ -721,7 +758,10 @@ footer p {
 <main>
 
 <nav>
-  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">⚡ OfertasTec</div>
+  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">
+    <img src="logo.png" alt="OfertasTec" onerror="this.style.display='none'">
+    OfertasTec
+  </div>
   <div class="nav-actions">
     <button class="icon-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     <button class="icon-btn" id="favBtn" title="Favoritos" aria-label="Favoritos">
@@ -733,7 +773,8 @@ footer p {
 
 <header class="hero">
   <div class="hero-badge">🛒 Mercado Livre · Afiliados</div>
-  <h1>TECNOLOGIA<br><span>SEM LIMITES</span></h1>
+  <img class="hero-logo" src="logo.png" alt="OfertasTec - Tecnologia sem limites">
+  <div class="hero-tagline">TECNOLOGIA <span>SEM LIMITES</span></div>
   <p>Produtos selecionados a dedo com os melhores preços. Clique e compre direto no Mercado Livre — sem complicação.</p>
   <div class="hero-stats" id="heroStats"></div>
 </header>
@@ -772,6 +813,7 @@ footer p {
 </div>
 
 <footer>
+  <img src="logo.png" alt="OfertasTec" onerror="this.style.display='none'" style="width:80px;height:80px;border-radius:50%;margin-bottom:12px;filter:drop-shadow(0 0 24px rgba(255,224,0,.3))">
   <div class="footer-logo">⚡ OFERTASTEC</div>
   <div class="footer-links">
     <a href="#categorias">Catálogo</a>
