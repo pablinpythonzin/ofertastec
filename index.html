@@ -1038,6 +1038,13 @@ CATS.forEach(c => {
   const seen = new Set();
   c.produtos = c.produtos.filter(p => !seen.has(p.u) && seen.add(p.u));
 });
+
+/* ════════════════════════════════════════════════════════════════
+   PARTÍCULAS
+════════════════════════════════════════════════════════════════ */
+function createParticles() {
+  const container = document.getElementById('particles');
+  const colors = ['#FFE000','#38BFFF','#FF7A50','#AA7AFF','#2ED8BC','#FF3D7F'];
   for (let i = 0; i < 30; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
