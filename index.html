@@ -881,51 +881,163 @@ footer p {
 ════════════════════════════════════════════════════════════════ */
 const CATS = [
   {id:'mouse-sem-fio', nome:'Mouse Sem Fio', emoji:'🖱️', cor:'#38BFFF', mlSearch:'mouse sem fio bluetooth',
-   produtos:['https://meli.la/16Zu7aQ','https://meli.la/1FKVJ3z','https://meli.la/1LJWhVZ','https://meli.la/1N133Xe','https://meli.la/24v9AsX','https://meli.la/2Ax6kZC','https://meli.la/2QtqWZq','https://meli.la/2QUUhTR','https://meli.la/2rqAKxH']},
+   produtos:[
+     {u:'https://meli.la/16Zu7aQ', n:'Mouse Logitech M170 Sem Fio Rosa'},
+     {u:'https://meli.la/1FKVJ3z', n:'Mouse Logitech Pebble 2 M350s Grafite'},
+     {u:'https://meli.la/1LJWhVZ', n:'Mouse Intelbras MSI50 Silencioso Preto'},
+     {u:'https://meli.la/24v9AsX', n:'Mouse Logitech M170 Sem Fio Azul Claro'},
+     {u:'https://meli.la/2Ax6kZC', n:'Mouse Logitech M280 Sem Fio Preto'},
+     {u:'https://meli.la/2QtqWZq', n:'Mouse Logitech M190 Sem Fio Cinza'},
+     {u:'https://meli.la/2QUUhTR', n:'Mouse Logitech M170 Cinza E Preto'},
+     {u:'https://meli.la/2rqAKxH', n:'Mouse Logitech M170 Sem Fio Preto'}
+   ]},
   {id:'mouse-com-fio', nome:'Mouse Com Fio', emoji:'🖱️', cor:'#2ED8BC', mlSearch:'mouse com fio usb',
-   produtos:['https://meli.la/1zHhNjb','https://meli.la/2BdXdPm','https://meli.la/1jy5H8M','https://meli.la/2F8AUwW','https://meli.la/1zquXcb','https://meli.la/12UNNBe','https://meli.la/1G5EfHd','https://meli.la/1a7Rfrt','https://meli.la/28xQ9VT','https://meli.la/1cvqKkQ']},
+   produtos:[
+     {u:'https://meli.la/1zHhNjb', n:'Mouse USB 1200 DPI'},
+     {u:'https://meli.la/2BdXdPm', n:'Mouse HP 150 USB Preto'},
+     {u:'https://meli.la/1jy5H8M', n:'Mouse HP 100 USB 1600 DPI'},
+     {u:'https://meli.la/2F8AUwW', n:'Mouse USB Óptico 1600 DPI Preto'},
+     {u:'https://meli.la/1zquXcb', n:'Mouse USB Óptico 1200 DPI'},
+     {u:'https://meli.la/12UNNBe', n:'Mouse USB Óptico 1000 DPI Preto'},
+     {u:'https://meli.la/1G5EfHd', n:'Mouse Dell Ms116 USB'},
+     {u:'https://meli.la/1a7Rfrt', n:'Mouse Multilaser Classic Box 1200 DPI'},
+     {u:'https://meli.la/28xQ9VT', n:'Mouse Logitech M90 Com Fio'}
+   ]},
   {id:'mouse-gamer-sem-fio', nome:'Mouse Gamer Sem Fio', emoji:'🎮', cor:'#FF3D7F', mlSearch:'mouse gamer sem fio rgb',
-   produtos:['https://meli.la/2eiaX1o','https://meli.la/1ieF2X8','https://meli.la/1ViXRN7','https://meli.la/15QeaEY','https://meli.la/2bq5uLu','https://meli.la/1Bwj698','https://meli.la/2iuRXex','https://meli.la/13eJLNw','https://meli.la/2kvFciT','https://meli.la/241na5E','https://meli.la/2BZocDd','https://meli.la/19CRJzw','https://meli.la/2F4p8Fn','https://meli.la/1xnHcCq','https://meli.la/2pnhc6K','https://meli.la/12Li269','https://meli.la/2UTzmsY','https://meli.la/1NTFM66','https://meli.la/28iFCs3','https://meli.la/1hswnNi','https://meli.la/1uhKd3R']},
+   produtos:[
+     {u:'https://meli.la/2eiaX1o', n:'Mouse Gamer Attack Shark R1 Sem Fio'},
+     {u:'https://meli.la/1ViXRN7', n:'Mouse Gamer Attack Shark R1 Branco'},
+     {u:'https://meli.la/15QeaEY', n:'Mouse Gamer Tri Mode 18000 DPI'},
+     {u:'https://meli.la/1Bwj698', n:'Mouse Gamer Titorion Pixart 12000 DPI'},
+     {u:'https://meli.la/2iuRXex', n:'Mouse Gamer Redragon King Pro 4K'},
+     {u:'https://meli.la/13eJLNw', n:'Mouse Gamer Shinka 3200 DPI Sem Fio'},
+     {u:'https://meli.la/2iuRXex', n:'Mouse Gamer Redragon King Pro 4K Preto'},
+     {u:'https://meli.la/2kvFciT', n:'Mouse Gamer Redragon Paw3104 7200 DPI'},
+     {u:'https://meli.la/241na5E', n:'Mouse Gamer Redragon King Pro'},
+     {u:'https://meli.la/2BZocDd', n:'Mouse Gamer Redragon Fyzu Pro'},
+     {u:'https://meli.la/19CRJzw', n:'Mouse Gamer Fire Phoenix Sem Fio'},
+     {u:'https://meli.la/2F4p8Fn', n:'Mouse Gamer Titorion Pixart 3311'},
+     {u:'https://meli.la/1Bwj698', n:'Mouse Gamer Titorion Pixart 3311 Sem Fio'},
+     {u:'https://meli.la/1xnHcCq', n:'Mouse Gamer Knup Bluetooth 1600 DPI'},
+     {u:'https://meli.la/2pnhc6K', n:'Mouse Gamer Recarregável Bluetooth'},
+     {u:'https://meli.la/12Li269', n:'Mouse Gamer Machenike M7 Pro RGB'},
+     {u:'https://meli.la/2UTzmsY', n:'Mouse Gamer Warrior Dash 8 Botões'},
+     {u:'https://meli.la/1NTFM66', n:'Mouse Gamer Redragon Taipan Pro M810'},
+     {u:'https://meli.la/28iFCs3', n:'Mouse Gamer Recarregável Bluetooth 2.4G'},
+     {u:'https://meli.la/1uhKd3R', n:'Mouse Gamer Redragon M991 Sem Fio'}
+   ]},
   {id:'mouse-gamer-com-fio', nome:'Mouse Gamer Com Fio', emoji:'🎮', cor:'#AA7AFF', mlSearch:'mouse gamer com fio rgb',
-   produtos:['https://meli.la/321ZTMv','https://meli.la/2nikVNt','https://meli.la/2BkMNpg','https://meli.la/2nK6CGd','https://meli.la/1GyW82d','https://meli.la/23wdZ7w','https://meli.la/15mY31Y','https://meli.la/2n5VFUw','https://meli.la/2BwBjiE','https://meli.la/1QTQPMY','https://meli.la/2ZyCiGn','https://meli.la/2ms6fTM','https://meli.la/23VvESt']},
+   produtos:[
+     {u:'https://meli.la/2nikVNt', n:'Mouse Gamer Viper Pro Naja 7200 DPI'},
+     {u:'https://meli.la/2BkMNpg', n:'Mouse Gamer Machenike M7 Pro 12800 DPI'},
+     {u:'https://meli.la/2nK6CGd', n:'Mouse Gamer Redragon M815 Ultraleve'},
+     {u:'https://meli.la/1GyW82d', n:'Mouse Gamer Onikuma Cw917 Com Fio'},
+     {u:'https://meli.la/15mY31Y', n:'Mouse Gamer Havit Ms1036 RGB 7200 DPI'},
+     {u:'https://meli.la/2n5VFUw', n:'Mouse Gamer Hive RGB 16000 DPI'},
+     {u:'https://meli.la/2BwBjiE', n:'Mouse Gamer Havit Ms959s RGB 8 Botões'},
+     {u:'https://meli.la/1QTQPMY', n:'Mouse Gamer RGB Fortrek Crusader White'},
+     {u:'https://meli.la/2ZyCiGn', n:'Mouse Gamer Fortrek Crusader 12800 DPI Com'},
+     {u:'https://meli.la/2ms6fTM', n:'Mouse Gamer Bomber M722 Redragon Preto'},
+     {u:'https://meli.la/23VvESt', n:'Mouse Gamer Redragon Devourer Preto M993'}
+   ]},
   {id:'teclado-com-fio', nome:'Teclado Com Fio', emoji:'⌨️', cor:'#FFE000', mlSearch:'teclado com fio usb',
-   produtos:['https://meli.la/1Fy7WQv','https://meli.la/2e7gPck','https://meli.la/1kFH9iG','https://meli.la/11EgXFE','https://meli.la/2kFVGHA','https://meli.la/2s4v5j3','https://meli.la/13326L8','https://meli.la/1eE7xym','https://meli.la/1PK6gym','https://meli.la/1YkqEkr']},
+   produtos:[
+     {u:'https://meli.la/1Fy7WQv', n:'Teclado Multimídia Com Fio USB Teclas'},
+     {u:'https://meli.la/2e7gPck', n:'Teclado Titanis USB Com Fio Preto ABNT2'},
+     {u:'https://meli.la/1kFH9iG', n:'Teclado USB Hoopson Tpc 058g Com Fio'},
+     {u:'https://meli.la/11EgXFE', n:'Teclado USB Com Fio Dgx Padrão ABNT2'},
+     {u:'https://meli.la/2kFVGHA', n:'Teclado Com Fio USB Kb216 Dell Cor De'},
+     {u:'https://meli.la/2s4v5j3', n:'Teclado USB Exbom Bk 102 Preto ABNT2 Para'},
+     {u:'https://meli.la/1eE7xym', n:'Teclado Com Fio USB Logitech K120 Com'},
+     {u:'https://meli.la/1PK6gym', n:'Teclado Bahrein Para Pc Computador'},
+     {u:'https://meli.la/1YkqEkr', n:'Teclado USB Com Fio B max Bm t02 ABNT2'}
+   ]},
   {id:'teclado-sem-fio', nome:'Teclado Sem Fio', emoji:'⌨️', cor:'#FFA040', mlSearch:'teclado sem fio bluetooth',
-   produtos:['https://meli.la/1RdrkMP','https://meli.la/1Qx1EEh','https://meli.la/16PdgAV','https://meli.la/138aRrU','https://meli.la/1gfyU2e','https://meli.la/1uRKdMf','https://meli.la/1Y9Djdq','https://meli.la/1Gkykud']},
+   produtos:[
+     {u:'https://meli.la/1RdrkMP', n:'Teclado Sem Fio MX Keys Mini Logitech'},
+     {u:'https://meli.la/1Qx1EEh', n:'Teclado Sem Fio Signature Slim K950 Branco'},
+     {u:'https://meli.la/16PdgAV', n:'Teclado Mecânico Aula F75 Preto Sem Fio'},
+     {u:'https://meli.la/138aRrU', n:'Teclado Aula F75 Sem Fio Mecânico Thunder'},
+     {u:'https://meli.la/1uRKdMf', n:'Teclado Sem Fio Logitech Pebble Keys 2'},
+     {u:'https://meli.la/1Y9Djdq', n:'Teclado Aula F75 Mecânico Sem Fio Tri Mode'},
+     {u:'https://meli.la/1Gkykud', n:'Teclado Sem Fio Logitech Signature K650'}
+   ]},
   {id:'teclado-gamer-com-fio', nome:'Teclado Gamer', emoji:'⌨️', cor:'#FF6B35', mlSearch:'teclado gamer mecanico rgb',
-   produtos:['https://meli.la/1s34Rp2','https://meli.la/2G9hQwo','https://meli.la/2WCTDDE','https://meli.la/1ivXod3','https://meli.la/34bmbbX','https://meli.la/24WwTrt','https://meli.la/1ouDkYa','https://meli.la/2wUJ3fr','https://meli.la/32SsR3d','https://meli.la/1DNzGQi','https://meli.la/2xBx1Tq','https://meli.la/2NhJeVD','https://meli.la/2RGpCCn','https://meli.la/1WKzhP5']},
+   produtos:[
+     {u:'https://meli.la/1s34Rp2', n:'Teclado Gamer 60% Membrana RGB Fio USB'},
+     {u:'https://meli.la/2WCTDDE', n:'Teclado Mecânico Gamer RGB Switch Azul'},
+     {u:'https://meli.la/1ivXod3', n:'Bluetooth + 2.4G + Fio RGB Gamer Teclado'},
+     {u:'https://meli.la/34bmbbX', n:'Teclado Mecânico Fio Gamer RGB 60% Switch'},
+     {u:'https://meli.la/2wUJ3fr', n:'Lenovo Teclado Gamer Com LED RGB Com Fio'},
+     {u:'https://meli.la/32SsR3d', n:'Teclado Gamer LED RGB Multimídia Com Fio'},
+     {u:'https://meli.la/1DNzGQi', n:'Teclado Semi mecânico Gamer RGB USB Shop'},
+     {u:'https://meli.la/2xBx1Tq', n:'Teclado Pro X Tkl Rapid Gamer Com Fio'},
+     {u:'https://meli.la/2NhJeVD', n:'Teclado Gamer Switch Magnético Attack'},
+     {u:'https://meli.la/2RGpCCn', n:'Teclado E Mouse Mecânico Com Fio De 98'},
+     {u:'https://meli.la/1WKzhP5', n:'Teclado Mecânico Com Fio Conjunto De Mouse'}
+   ]},
   {id:'fone-sem-fio', nome:'Fone Sem Fio Bluetooth', emoji:'🎧', cor:'#E040FB', mlSearch:'fone bluetooth sem fio in ear',
-   produtos:['https://meli.la/1EHHo28','https://meli.la/1vyVnBY','https://meli.la/2ZmHugN','https://meli.la/2haN2CW','https://meli.la/1aF1H7W','https://meli.la/2Kr9VSQ','https://meli.la/2wu3ra9','https://meli.la/1G18uM3','https://meli.la/2BwQyf5','https://meli.la/2L2DTy9','https://meli.la/19F238V','https://meli.la/1c6vAL2','https://meli.la/2rbugtv','https://meli.la/1N2GQcc','https://meli.la/2wA6HkN','https://meli.la/1y3PyiV']},
+   produtos:[
+     {u:'https://meli.la/1EHHo28', n:'Fone Ouvido Bluetooth 5.4 Sem Fio Estojo'},
+     {u:'https://meli.la/1vyVnBY', n:'Fone Bluetooth Esportivos Sem'},
+     {u:'https://meli.la/2ZmHugN', n:'Fone Sem Fio Bluetooth Esportivo'},
+     {u:'https://meli.la/1y3PyiV', n:'Fone TWS Philips Tat1109bk/00'},
+     {u:'https://meli.la/2Kr9VSQ', n:'Fone In ear Bluetooth Sem Fio'},
+     {u:'https://meli.la/2haN2CW', n:'Hivi Fone De Ouvido Bluetooth 5.0 Par Sem'},
+     {u:'https://meli.la/1G18uM3', n:'Fone Bluetooth Jbl Tune Flex 2'},
+     {u:'https://meli.la/2wu3ra9', n:'Fone Soundcore By Anker P20i'},
+     {u:'https://meli.la/19F238V', n:'Fone Sem Fio Stage Hero6 TWS'},
+     {u:'https://meli.la/1c6vAL2', n:'Fone Aberto Indicador De Bateria'},
+     {u:'https://meli.la/2rbugtv', n:'Fone Bluetooth Ear Cuff Ows Hifi'},
+     {u:'https://meli.la/1N2GQcc', n:'Fone Bluetooth Sem Fio Wave Buds'},
+     {u:'https://meli.la/2wA6HkN', n:'Basike Fone De Ouvido Sem Fio Esportivo'}
+   ]},
   {id:'fone-com-fio', nome:'Fone Com Fio', emoji:'🎧', cor:'#00E5FF', mlSearch:'fone com fio p2 ouvido',
-   produtos:['https://meli.la/2BHFpi4','https://meli.la/2kNgG1Z','https://meli.la/2P1K5Eq','https://meli.la/1jMCFjN','https://meli.la/1Vj6R2V','https://meli.la/2m5Y1hr','https://meli.la/26bqnka','https://meli.la/14Hqw6W','https://meli.la/2Kef7ag','https://meli.la/1WJac2f','https://meli.la/1KuHyGK','https://meli.la/1CpcDEH','https://meli.la/1ttbaqV']},
+   produtos:[
+     {u:'https://meli.la/2kNgG1Z', n:'Fone Baseus Encok H17 Com Fio P2'},
+     {u:'https://meli.la/2P1K5Eq', n:'Fone Tae1126bk In-Ear Com'},
+     {u:'https://meli.la/1jMCFjN', n:'Fone Com Fio Somic Tone Extra'},
+     {u:'https://meli.la/2m5Y1hr', n:'Fone Retorno Palco Edx Pro Dj In'},
+     {u:'https://meli.la/26bqnka', n:'2pcs Fone De Ouvido 1.2m Com Fio 3.5mm Com'},
+     {u:'https://meli.la/14Hqw6W', n:'Fone Com Fio 3.5mm Com Microfone'},
+     {u:'https://meli.la/1WJac2f', n:'Fone Intra auricular Com Fio 1.2'},
+     {u:'https://meli.la/1KuHyGK', n:'Fone Taue101bk/00 Com Microfone'},
+     {u:'https://meli.la/1CpcDEH', n:'Fone Silicone Com Fio 3.5mm Com'},
+     {u:'https://meli.la/1ttbaqV', n:'Fone In ear Qkz Akx Para Música'}
+   ]},
   {id:'fone-gamer', nome:'Headset Gamer', emoji:'🎧', cor:'#76FF03', mlSearch:'headset gamer microfone',
-   produtos:['https://meli.la/1zm1HFa','https://meli.la/2unSB1K','https://meli.la/1Rqma2o','https://meli.la/2nSWHED','https://meli.la/2tkuQja','https://meli.la/15fHoqk','https://meli.la/1wmU4zZ','https://meli.la/1oLqELi','https://meli.la/2tidt18','https://meli.la/1eNRNSS','https://meli.la/1uLNe2m','https://meli.la/2UUay16','https://meli.la/2Z5SEKB','https://meli.la/1dZBv92','https://meli.la/2rBnTKy','https://meli.la/1D1stad','https://meli.la/1ZVVbE5']},
+   produtos:[
+     {u:'https://meli.la/2unSB1K', n:'Fone Gamer Headset LED RGB'},
+     {u:'https://meli.la/1Rqma2o', n:'Headset Over-Ear Gamer'},
+     {u:'https://meli.la/2nSWHED', n:'Headset Gamer Profissional Mento RGB'},
+     {u:'https://meli.la/15fHoqk', n:'Headset Over-Ear Gamer Quantum 400 Preto'},
+     {u:'https://meli.la/1wmU4zZ', n:'Headset Gamer Mancer Twilight S Rainbow'},
+     {u:'https://meli.la/2tidt18', n:'Headset Gamer Redragon Zeus Lite Preto P3'},
+     {u:'https://meli.la/1eNRNSS', n:'Headset Gamer Havit H2230d P2 P3'},
+     {u:'https://meli.la/1uLNe2m', n:'Headset Gamer Pro H2 Preto Fortrek'},
+     {u:'https://meli.la/2UUay16', n:'Fone Nubwo® U3 Headset Gamer 3d Estéreo'},
+     {u:'https://meli.la/2Z5SEKB', n:'Headset Gamer Profissional Onikuma X25'},
+     {u:'https://meli.la/1dZBv92', n:'Headset Gamer Havit H2002d Fone De Ouvido'},
+     {u:'https://meli.la/2rBnTKy', n:'Headset Fone Gamer Redragon Pandora 2 RGB'},
+     {u:'https://meli.la/1D1stad', n:'Headset Fifine Ampligame H6 RGB 7.1'},
+     {u:'https://meli.la/1ZVVbE5', n:'Headset Gamer Mizar Elg 3d Surround 7.1'}
+   ]},
   {id:'cabo-usbc', nome:'Cabo USB-C', emoji:'🔌', cor:'#FFEA00', mlSearch:'cabo usb tipo c carregador',
-   produtos:['https://meli.la/1xR2nNz','https://meli.la/1s6goJ3','https://meli.la/1G4ky69','https://meli.la/1FATBkB','https://meli.la/2z251cg','https://meli.la/1rbUMsD']},
+   produtos:[
+     {u:'https://meli.la/1xR2nNz', n:'Cabo Carregador USB Tipo-C 6A Carregamento'},
+     {u:'https://meli.la/1s6goJ3', n:'Cabo USB X Tipo-C Turbo 60w 2 Metros'},
+     {u:'https://meli.la/1G4ky69', n:'Cabo USB Turbo Tipo-C Philips Carregamento'},
+     {u:'https://meli.la/1FATBkB', n:'Cabo USB Entrada Tipo-C A 60w Turbo Ultra'},
+     {u:'https://meli.la/2z251cg', n:'Cabo USB Carregador Celular USB C Tipo-C 3'},
+     {u:'https://meli.la/1rbUMsD', n:'Cabo USB Tipo-C 2 Metros Carregador Turbo'}
+   ]}
 ];
 
-// dedup
-CATS.forEach(c => c.produtos = [...new Set(c.produtos)]);
-
-/* ════════════════════════════════════════════════════════════════
-   ESTADO
-════════════════════════════════════════════════════════════════ */
-const state = {
-  favorites: new Map(),       // productId -> { name, price, thumb, url }
-  activeFilter: 'all',
-  searchTerm: '',
-  sort: 'default',
-  productData: new Map(),     // catId -> array de produtos da API
-  loadedCats: new Set(),
-  theme: 'dark',
-};
-
-/* ════════════════════════════════════════════════════════════════
-   PARTÍCULAS
-════════════════════════════════════════════════════════════════ */
-function createParticles() {
-  const container = document.getElementById('particles');
-  const colors = ['#FFE000','#38BFFF','#FF7A50','#AA7AFF','#2ED8BC','#FF3D7F'];
+// dedup por URL
+CATS.forEach(c => {
+  const seen = new Set();
+  c.produtos = c.produtos.filter(p => !seen.has(p.u) && seen.add(p.u));
+});
   for (let i = 0; i < 30; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
@@ -1069,10 +1181,12 @@ function buildCategories() {
   const sortedCats = sortCats([...CATS]);
 
   container.innerHTML = sortedCats.map(cat => {
-    const grid = cat.produtos.map((url, pi) => {
+    const grid = cat.produtos.map((produto, pi) => {
+      const url = produto.u;
+      const nomeReal = produto.n;
       const productId = `${cat.id}:${pi}`;
       return `
-        <article class="card" data-product-id="${productId}" data-cat="${cat.id}" style="--cat-clr:${cat.cor}">
+        <article class="card" data-product-id="${productId}" data-cat="${cat.id}" data-real-name="${nomeReal.replace(/"/g, '&quot;')}" style="--cat-clr:${cat.cor}">
           <div class="card-img-wrap">
             <div class="card-skeleton"></div>
             <img class="card-img" alt="" loading="lazy" decoding="async">
@@ -1183,8 +1297,12 @@ function fillCategoryCards(cat, products) {
       // sem dados — mostra mensagem de imagem indisponível
       const name = card.querySelector('.card-name');
       const priceRow = card.querySelector('.card-price-row');
-      if (name) name.innerHTML = `${cat.nome} <span style="opacity:.5">— ver oferta</span>`;
-      if (priceRow) priceRow.innerHTML = `<span style="font-size:13px;color:var(--muted)">Toque para ver preço</span>`;
+      if (name) {
+        const realName = card.dataset.realName;
+        name.textContent = realName || cat.nome;
+        name.title = realName || cat.nome;
+      }
+      if (priceRow) priceRow.innerHTML = `<span style="font-size:13px;color:var(--muted)">Ver preço no Mercado Livre</span>`;
       const skel = card.querySelector('.card-skeleton');
       const fallback = card.querySelector('.card-img-fallback');
       if (skel) skel.style.opacity = '0';
