@@ -1040,6 +1040,19 @@ CATS.forEach(c => {
 });
 
 /* ════════════════════════════════════════════════════════════════
+   ESTADO
+════════════════════════════════════════════════════════════════ */
+const state = {
+  favorites: new Map(),
+  activeFilter: 'all',
+  searchTerm: '',
+  sort: 'default',
+  productData: new Map(),
+  loadedCats: new Set(),
+  theme: 'dark',
+};
+
+/* ════════════════════════════════════════════════════════════════
    PARTÍCULAS
 ════════════════════════════════════════════════════════════════ */
 function createParticles() {
