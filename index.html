@@ -882,7 +882,7 @@ footer p {
 const CATS = [
   {id:'mouse-sem-fio', nome:'Mouse Sem Fio', emoji:'🖱️', cor:'#38BFFF', mlSearch:'mouse sem fio bluetooth',
    produtos:[
-     {u:'https://meli.la/16Zu7aQ', n:'Mouse Logitech M170 Sem Fio Rosa'},
+     {u:'https://meli.la/16Zu7aQ', n:'Mouse Logitech M170 Sem Fio Rosa', img:'produtos/mouse-logitech-m170-rosa.jpg'},
      {u:'https://meli.la/1FKVJ3z', n:'Mouse Logitech Pebble 2 M350s Grafite'},
      {u:'https://meli.la/1LJWhVZ', n:'Mouse Intelbras MSI50 Silencioso Preto'},
      {u:'https://meli.la/24v9AsX', n:'Mouse Logitech M170 Sem Fio Azul Claro'},
@@ -1204,12 +1204,13 @@ function buildCategories() {
     const grid = cat.produtos.map((produto, pi) => {
       const url = produto.u;
       const nomeReal = produto.n;
+      const imgLocal = produto.img || '';
       const productId = `${cat.id}:${pi}`;
       return `
-        <article class="card" data-product-id="${productId}" data-cat="${cat.id}" data-real-name="${nomeReal.replace(/"/g, '&quot;')}" style="--cat-clr:${cat.cor}">
+        <article class="card" data-product-id="${productId}" data-cat="${cat.id}" data-real-name="${nomeReal.replace(/"/g, '&quot;')}" data-img-local="${imgLocal}" style="--cat-clr:${cat.cor}">
           <div class="card-img-wrap">
             <div class="card-skeleton"></div>
-            <img class="card-img" alt="" loading="lazy" decoding="async">
+            <img class="card-img" alt="" loading="lazy" decoding="async"${imgLocal ? ` src="${imgLocal}"` : ''}>
             <div class="card-img-fallback">
               <div class="emoji">📷</div>
               <div class="text">Imagem não disponível no momento</div>
@@ -1314,19 +1315,29 @@ function fillCategoryCards(cat, products) {
 
   cards.forEach((card, i) => {
     if (products.length === 0) {
-      // sem dados — mostra mensagem de imagem indisponível
+      // sem dados da API — mostra nome real, e imagem local se existir
       const name = card.querySelector('.card-name');
       const priceRow = card.querySelector('.card-price-row');
+      const imgLocal = card.dataset.imgLocal;
+      const img = card.querySelector('.card-img');
+      const skel = card.querySelector('.card-skeleton');
+      const fallback = card.querySelector('.card-img-fallback');
+      
       if (name) {
         const realName = card.dataset.realName;
         name.textContent = realName || cat.nome;
         name.title = realName || cat.nome;
       }
       if (priceRow) priceRow.innerHTML = `<span style="font-size:13px;color:var(--muted)">Ver preço no Mercado Livre</span>`;
-      const skel = card.querySelector('.card-skeleton');
-      const fallback = card.querySelector('.card-img-fallback');
-      if (skel) skel.style.opacity = '0';
-      if (fallback) fallback.classList.add('visible');
+      
+      // se tem imagem local, usa ela. Se não, mostra fallback.
+      if (imgLocal && img) {
+        img.classList.add('loaded');
+        if (skel) skel.style.opacity = '0';
+      } else {
+        if (skel) skel.style.opacity = '0';
+        if (fallback) fallback.classList.add('visible');
+      }
       return;
     }
     // pega produto diferente pra cada card (com ciclo)
@@ -1339,7 +1350,20 @@ function populateCard(card, product, cat) {
   // IMAGEM
   const img = card.querySelector('.card-img');
   const skel = card.querySelector('.card-skeleton');
-  if (img && product.thumbnail) {
+  const imgLocal = card.dataset.imgLocal;
+  
+  // se tiver imagem local, ela tem prioridade — não sobrescreve
+  if (imgLocal) {
+    if (img) {
+      img.classList.add('loaded');
+      img.alt = card.dataset.realName || product.title;
+    }
+    if (skel) {
+      skel.style.transition = 'opacity .3s';
+      skel.style.opacity = '0';
+      setTimeout(() => skel.remove(), 300);
+    }
+  } else if (img && product.thumbnail) {
     img.src = product.thumbnail;
     img.alt = product.title;
     img.onload = () => {
