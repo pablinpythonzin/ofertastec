@@ -15,7 +15,24 @@
 <link rel="preconnect" href="https://http2.mlstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-<style>
+/* ═══ BANNER ESPECIAL (REMOVER DEPOIS) ═══ */
+.hero-special-banner {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 13px;
+  transition: all .2s ease;
+  animation: fadeSlideUp .7s .35s ease both;
+}
+.hero-special-banner:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+}
 /* ═══════ TEMA ═══════ */
 :root {
   --bg: #04060F;
@@ -808,6 +825,11 @@ footer p {
   <img class="hero-logo" src="logo.png" alt="OfertasTec - Tecnologia sem limites">
   <div class="hero-tagline">TECNOLOGIA <span>SEM LIMITES</span></div>
   <p>Produtos selecionados a dedo com os melhores preços. Clique e compre direto no Mercado Livre — sem complicação.</p>
+<!-- ═══ INÍCIO BANNER ESPECIAL (REMOVER DEPOIS) ═══ -->
+<a href="https://meli.la/23SBiNs" target="_blank" rel="noopener noreferrer sponsored" class="hero-special-banner">
+  🪁 Protetor Jugular Anti Cerol — ver no Mercado Livre ↗
+</a>
+<!-- ═══ FIM BANNER ESPECIAL (REMOVER DEPOIS) ═══ -->
   <div class="hero-stats" id="heroStats"></div>
 </header>
 
@@ -837,7 +859,6 @@ footer p {
 </div>
 
 <div id="categorias"></div>
-
 <div class="empty-state" id="emptyState" style="display:none">
   <div class="emoji">🔎</div>
   <h3>Nada encontrado</h3>
