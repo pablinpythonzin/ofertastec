@@ -1,10 +1,10 @@
 """
 ═══════════════════════════════════════════════════════════════════════
-  PROCESSAR FOTOS v4 — OfertasTec
+  PROCESSAR FOTOS — OfertasTec
   Lê o ID do NOME DO ARQUIVO automaticamente (10.webp = produto #10)
 ═══════════════════════════════════════════════════════════════════════
 
-NOVIDADE DA v4:
+COMO FUNCIONA:
   Você renomeia as fotos com o ID do produto (10.webp, 11.webp, 15.webp).
   O script lê o número, busca o produto na planilha e renomeia SOZINHO.
   Você só confirma no final. ZERO digitação produto por produto.
@@ -13,7 +13,7 @@ COMO USAR:
   1. Roda criar_pastas.py primeiro (cria as pastas)
   2. Baixa fotos e renomeia com o ID (ex: produto #10 → 10.webp)
   3. Joga nas pastas certas: fotos-webp/mouse-com-fio/10.webp
-  4. Roda: python processar_fotos_v4.py
+  4. Roda: python processar_fotos.py
   5. Escolhe a categoria
   6. Script mostra o mapeamento e você confirma com 's'
 
@@ -63,20 +63,38 @@ COL_NOME = 5         # E - Nome do Produto
 COR_VERMELHO = "FFC00000"
 COR_ROXO = "FF7030A0"
 
+# Lista DEFINITIVA: nome-da-pasta : categoria-na-planilha (30 categorias)
 CATEGORIAS = {
     "mouse-sem-fio":          "Mouse sem fio",
     "mouse-com-fio":          "Mouse com fio",
     "mouse-gamer-sem-fio":    "Mouse gamer sem fio",
     "mouse-gamer-com-fio":    "Mouse gamer com fio",
+    "mouse-vertical":         "Mouse vertical (ergonômico)",
     "teclado-com-fio":        "Teclado com fio",
     "teclado-sem-fio":        "Teclado sem fio",
     "teclado-gamer-com-fio":  "Teclado gamer com fio",
+    "teclado-gamer-sem-fio":  "Teclado gamer sem fio",
     "fone-sem-fio":           "Fone sem fio (bluetooth)",
     "fone-com-fio":           "Fone com fio",
-    "fone-gamer":             "Fone gamer (headset)",
+    "fone-gamer-sem-fio":     "Fone gamer (headset sem fio)",
+    "fone-gamer-com-fio":     "Fone gamer (headset com fio)",
+    "caixa-som-bluetooth":    "Caixa de som bluetooth",
+    "caixa-som-com-fio":      "Caixa de som com fio",
     "cabo-usbc":              "Cabo USB-C",
+    "cabo-lightning":         "Cabo Lightning (iPhone)",
+    "power-bank":             "Power bank",
+    "suporte-celular-carro":  "Suporte p/ celular (carro)",
+    "pelicula-protetora":     "Película protetora",
+    "capinha-celular":        "Capinha celular",
+    "mousepad-simples":       "Mousepad simples",
+    "mousepad-gamer":         "Mousepad gamer (grande)",
+    "controle-pc-sem-fio":    "Controle PC (sem fio)",
+    "controle-pc-com-fio":    "Controle PC (com fio)",
+    "controle-celular":       "Controle para celular",
+    "adaptador-tomada":       "Adaptador de tomada",
+    "cabo-hdmi":              "Cabo HDMI",
     "pen-drive":              "Pen drive",
-    "mouse-pad":              "Mouse pad",
+    "hd-externo":             "HD externo",
 }
 
 
@@ -282,7 +300,7 @@ def processar(slug, nome_pl, dados, pasta_brutas, pasta_destino):
 
 def main():
     print("\n" + "=" * 65)
-    print("  🚀 PROCESSAR FOTOS v4 — OfertasTec (auto por ID)")
+    print("  🚀 PROCESSAR FOTOS — OfertasTec (auto por ID)")
     print("=" * 65)
 
     pasta_atual = Path.cwd()
