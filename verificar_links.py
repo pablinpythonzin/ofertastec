@@ -33,6 +33,10 @@ FUNCIONALIDADES BONUS:
 - Mostra progresso (37/130)
 - Salva planilha automaticamente após cada verificação
 
+NOTA: este script lê as categorias direto da planilha (coluna C),
+então funciona com QUALQUER categoria — não precisa atualizar a lista
+aqui quando você adiciona categorias novas.
+
 ═══════════════════════════════════════════════════════════════════════
 """
 

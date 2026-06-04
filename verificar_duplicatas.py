@@ -37,21 +37,38 @@ except ImportError:
 ARQUIVO_PLANILHA = "Produtos_ml.xlsx"
 ABA_PLANILHA = "Produtos Renomear"
 
-# Categorias oficiais (devem bater EXATAMENTE)
+# Categorias oficiais (devem bater EXATAMENTE) — 30 categorias
 CATEGORIAS_VALIDAS = {
     "Mouse sem fio",
     "Mouse com fio",
     "Mouse gamer sem fio",
     "Mouse gamer com fio",
+    "Mouse vertical (ergonômico)",
     "Teclado com fio",
     "Teclado sem fio",
     "Teclado gamer com fio",
+    "Teclado gamer sem fio",
     "Fone sem fio (bluetooth)",
     "Fone com fio",
-    "Fone gamer (headset)",
-    "Headset gamer",
+    "Fone gamer (headset sem fio)",
+    "Fone gamer (headset com fio)",
+    "Caixa de som bluetooth",
+    "Caixa de som com fio",
     "Cabo USB-C",
+    "Cabo Lightning (iPhone)",
+    "Power bank",
+    "Suporte p/ celular (carro)",
+    "Película protetora",
+    "Capinha celular",
+    "Mousepad simples",
+    "Mousepad gamer (grande)",
+    "Controle PC (sem fio)",
+    "Controle PC (com fio)",
+    "Controle para celular",
+    "Adaptador de tomada",
+    "Cabo HDMI",
     "Pen drive",
+    "HD externo",
 }
 
 
