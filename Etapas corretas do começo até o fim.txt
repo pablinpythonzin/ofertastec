@@ -1,0 +1,26 @@
+Etapas corretas do começo até o fim 
+
+Como colocar a foto no site
+
+.automatizações que você usara:
+	1.verificador_links
+	2.verificar_duplicatas
+	3.processar_fotos
+
+1. Defina qual será a categoria do produto e qual produto e quais serão os produtos
+	
+	.USAR A AUTOMAÇÃO "verificador_links" e "verificar_duplicatas"ANTES DE ESCOLHER O LINK DO PRODUTO QUE VAI COLOCAR NA PLANILHA
+	.não pegar produtos com menos de 10 produtos no estoque !!!
+	.usar o maximo de filtros no mercado livre ao buscar o produto
+
+2.Depois de definido preencher as colunas de acordo com que elas pedem ex: "Nome do Produto" deve se usar para colocar os links, e vice versa só seguir as linhas
+	.NÃO APAGAR NENHUM PRODUTO DA PLANILHA por motivo de ID unico de cada produto
+
+2.1 Depois, deve se baixar a imagem do produto que voce pegou e jogar na pasta "fotos-webp" na pasta correta da categoria do seu produto escolhido
+	.A extensão correta deve ser webp
+	.Numerar as fotos de cada produto relacioanda a planilha
+
+3. A transformação de webp para jnp ocorre por meio da automaçaõ: "Processar_fotos.py" que irá arrumar as fotos em webp
+
+4.Usar o Claude para atualizar o nosso site nas questões tambem de fotos 
+	
