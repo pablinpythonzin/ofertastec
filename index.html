@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://api.mercadolibre.com">
 <link rel="preconnect" href="https://http2.mlstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.1.0/tabler-icons.min.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 <style>
 /* ═══════ TEMA ═══════ */
@@ -214,7 +215,7 @@ nav {
 .cat-section { padding: 48px 28px; border-bottom: 1px solid var(--border); }
 .cat-section:nth-child(even) { background: color-mix(in srgb, var(--text) 1%, transparent); }
 .cat-header { display: flex; align-items: center; gap: 14px; max-width: 1400px; margin-left: auto; margin-right: auto; margin-bottom: 24px; }
-.cat-icon-box { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; border: 1px solid; }
+.cat-bar { width: 5px; height: 46px; border-radius: 3px; flex-shrink: 0; }
 .cat-title { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1; }
 .cat-count { font-size: 12px; color: var(--muted); margin-top: 4px; }
 .cat-line { margin-left: auto; height: 3px; width: 48px; border-radius: 2px; flex-shrink: 0; }
@@ -297,7 +298,7 @@ footer p { color: var(--muted); font-size: 12px; line-height: 1.7; max-width: 64
   .hero { padding: 56px 16px 36px; } .hero h1 { font-size: clamp(46px, 14vw, 80px); }
   .hero p { font-size: 15px; margin-bottom: 32px; } .hero-stats { gap: 28px; } .stat-val { font-size: 28px; }
   .toolbar { padding: 12px 16px; top: 64px; } .search-row { flex-direction: column; align-items: stretch; } .sort-select { width: 100%; }
-  .cat-section { padding: 36px 16px; } .cat-title { font-size: 20px; } .cat-icon-box { width: 44px; height: 44px; font-size: 20px; }
+  .cat-section { padding: 36px 16px; } .cat-title { font-size: 20px; } .cat-bar { height: 40px; }
   .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .card-body { padding: 11px; gap: 6px; } .card-name { font-size: 12px; min-height: 32px; } .card-price { font-size: 18px; }
   .btn-offer { padding: 10px 12px; font-size: 11px; } .back-top { width: 42px; height: 42px; bottom: 16px; right: 16px; }
@@ -362,6 +363,36 @@ footer p { color: var(--muted); font-size: 12px; line-height: 1.7; max-width: 64
 .about-highlight p { font-size: 13px; color: var(--text-soft); margin: 0; line-height: 1.6; }
 @media (max-width: 768px) {
   .about-section { padding: 40px 16px; }
+}
+
+/* ═══════ FORMAS DE PAGAMENTO ═══════ */
+.pay-section { padding: 50px 28px; border-top: 1px solid var(--border); }
+.pay-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+.pay-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,224,0,.08); border: 1px solid rgba(255,224,0,.22);
+  color: var(--yellow); padding: 7px 18px; border-radius: 40px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.pay-title { font-family: 'Syne', sans-serif; font-size: clamp(20px, 3.5vw, 28px); font-weight: 800; margin: 14px 0 6px; }
+.pay-sub { font-size: 14px; color: var(--text-soft); margin: 0 auto 28px; max-width: 480px; line-height: 1.6; }
+.pay-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.pay-card {
+  background: #fff; border-radius: 12px; width: 96px; height: 60px;
+  display: flex; align-items: center; justify-content: center; padding: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2); transition: transform .2s ease;
+}
+.pay-card:hover { transform: translateY(-4px); }
+.pay-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.pay-card.boleto {
+  flex-direction: column; gap: 4px; color: #1a1a1a; font-weight: 700;
+}
+.pay-card.boleto .bars { display: flex; gap: 2px; align-items: flex-end; height: 22px; }
+.pay-card.boleto .bars span { width: 2px; background: #1a1a1a; }
+.pay-card.boleto .txt { font-size: 11px; letter-spacing: .5px; }
+@media (max-width: 768px) {
+  .pay-section { padding: 36px 16px; }
+  .pay-card { width: 82px; height: 52px; }
 }
 </style>
 </head>
@@ -460,6 +491,27 @@ footer p { color: var(--muted); font-size: 12px; line-height: 1.7; max-width: 64
   <h3>Nada encontrado</h3>
   <p>Tente buscar por outra categoria ou limpe os filtros.</p>
 </div>
+<!-- ═══════ FORMAS DE PAGAMENTO ═══════ -->
+<section class="pay-section">
+  <div class="pay-inner">
+    <div class="pay-badge">🔒 Pagamento Seguro</div>
+    <h2 class="pay-title">Formas de pagamento aceitas</h2>
+    <p class="pay-sub">A compra é finalizada com segurança dentro do Mercado Livre, que aceita as principais formas de pagamento do Brasil.</p>
+    <div class="pay-grid">
+      <div class="pay-card"><img src="produtos/pagamentos/visa.png" alt="Visa" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/mastercard.png" alt="Mastercard" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/elo.png" alt="Elo" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/amex.png" alt="American Express" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/hipercard.png" alt="Hipercard" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/pix.png" alt="Pix" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card"><img src="produtos/pagamentos/mercadopago.png" alt="Mercado Pago" onerror="this.parentElement.style.display='none'"></div>
+      <div class="pay-card boleto">
+        <div class="bars"><span style="height:18px"></span><span style="height:22px"></span><span style="height:12px"></span><span style="height:22px"></span><span style="height:16px"></span><span style="height:22px"></span><span style="height:10px"></span><span style="height:20px"></span><span style="height:22px"></span><span style="height:14px"></span></div>
+        <div class="txt">Boleto</div>
+      </div>
+    </div>
+  </div>
+</section>
 <footer>
   <img src="logo.png" alt="OfertasTec" onerror="this.style.display='none'" style="width:80px;height:80px;border-radius:50%;margin-bottom:12px;filter:drop-shadow(0 0 24px rgba(255,224,0,.3))">
   <div class="footer-logo">⚡ OFERTASTEC</div>
@@ -489,7 +541,7 @@ footer p { color: var(--muted); font-size: 12px; line-height: 1.7; max-width: 64
 <button class="back-top" id="backTop" aria-label="Voltar ao topo">↑</button>
 <script>
 const CATS = [
-  {id:'mouse-sem-fio', nome:'Mouse Sem Fio', emoji:'🖱️', cor:'#38BFFF', mlSearch:'mouse sem fio bluetooth',
+  {id:'mouse-sem-fio', nome:'Mouse Sem Fio', icon:'ti-mouse', cor:'#38BFFF', mlSearch:'mouse sem fio bluetooth',
    produtos:[
      {u:'https://meli.la/16Zu7aQ', n:'Mouse Logitech M170 Sem Fio Rosa', img:'produtos/mouse-logitech-m170-rosa.jpg'},
      {u:'https://meli.la/1FKVJ3z', n:'Mouse Logitech Pebble 2 M350s Grafite', img:'produtos/mouse-logitech-pebble-2-m350s-grafite.jpg'},
@@ -507,7 +559,7 @@ const CATS = [
      {u:'https://meli.la/2mZP8Mf', n:'Mouse Sem Fio Compacto Lenovo 300 Cinza Claro Gy51l15677', img:'produtos/mouse-sem-fio-compacto-lenovo-300-cinza-claro-gy51l15677.jpg'},
      {u:'https://meli.la/18G4RGk', n:'Mouse Sem Fio Multilaser Office - Design Ergonômico e Conexão 2.4GHz - MO251', img:'produtos/mouse-sem-fio-multilaser-office-design-ergonomico-e-conexao-2-4ghz-mo251.jpg'}
    ]},
-  {id:'mouse-com-fio', nome:'Mouse Com Fio', emoji:'🖱️', cor:'#2ED8BC', mlSearch:'mouse com fio usb',
+  {id:'mouse-com-fio', nome:'Mouse Com Fio', icon:'ti-mouse', cor:'#2ED8BC', mlSearch:'mouse com fio usb',
    produtos:[
      {u:'https://meli.la/1zHhNjb', n:'Mouse USB 1200 DPI'},
      {u:'https://meli.la/2BdXdPm', n:'Mouse HP 150 USB Preto'},
@@ -519,7 +571,7 @@ const CATS = [
      {u:'https://meli.la/1a7Rfrt', n:'Mouse Multilaser Classic Box 1200 DPI'},
      {u:'https://meli.la/28xQ9VT', n:'Mouse Logitech M90 Com Fio'}
    ]},
-  {id:'mouse-gamer-sem-fio', nome:'Mouse Gamer Sem Fio', emoji:'🎮', cor:'#FF3D7F', mlSearch:'mouse gamer sem fio rgb',
+  {id:'mouse-gamer-sem-fio', nome:'Mouse Gamer Sem Fio', icon:'ti-mouse', cor:'#FF3D7F', mlSearch:'mouse gamer sem fio rgb',
    produtos:[
      {u:'https://meli.la/2eiaX1o', n:'Mouse Gamer Attack Shark R1 Sem Fio'},
      {u:'https://meli.la/1ViXRN7', n:'Mouse Gamer Attack Shark R1 Branco'},
@@ -540,7 +592,7 @@ const CATS = [
      {u:'https://meli.la/28iFCs3', n:'Mouse Gamer Recarregável Bluetooth 2.4G'},
      {u:'https://meli.la/1uhKd3R', n:'Mouse Gamer Redragon M991 Sem Fio'}
    ]},
-  {id:'mouse-gamer-com-fio', nome:'Mouse Gamer Com Fio', emoji:'🎮', cor:'#AA7AFF', mlSearch:'mouse gamer com fio rgb',
+  {id:'mouse-gamer-com-fio', nome:'Mouse Gamer Com Fio', icon:'ti-mouse', cor:'#AA7AFF', mlSearch:'mouse gamer com fio rgb',
    produtos:[
      {u:'https://meli.la/2nikVNt', n:'Mouse Gamer Viper Pro Naja 7200 DPI'},
      {u:'https://meli.la/2BkMNpg', n:'Mouse Gamer Machenike M7 Pro 12800 DPI'},
@@ -554,7 +606,7 @@ const CATS = [
      {u:'https://meli.la/2ms6fTM', n:'Mouse Gamer Bomber M722 Redragon Preto'},
      {u:'https://meli.la/23VvESt', n:'Mouse Gamer Redragon Devourer Preto M993'}
    ]},
-  {id:'teclado-com-fio', nome:'Teclado Com Fio', emoji:'⌨️', cor:'#FFE000', mlSearch:'teclado com fio usb',
+  {id:'teclado-com-fio', nome:'Teclado Com Fio', icon:'ti-keyboard', cor:'#FFE000', mlSearch:'teclado com fio usb',
    produtos:[
      {u:'https://meli.la/1Fy7WQv', n:'Teclado Multimídia Com Fio USB Teclas'},
      {u:'https://meli.la/2e7gPck', n:'Teclado Titanis USB Com Fio Preto ABNT2'},
@@ -566,7 +618,7 @@ const CATS = [
      {u:'https://meli.la/1PK6gym', n:'Teclado Bahrein Para Pc Computador'},
      {u:'https://meli.la/1YkqEkr', n:'Teclado USB Com Fio B max Bm t02 ABNT2'}
    ]},
-  {id:'teclado-sem-fio', nome:'Teclado Sem Fio', emoji:'⌨️', cor:'#FFA040', mlSearch:'teclado sem fio bluetooth',
+  {id:'teclado-sem-fio', nome:'Teclado Sem Fio', icon:'ti-keyboard', cor:'#FFA040', mlSearch:'teclado sem fio bluetooth',
    produtos:[
      {u:'https://meli.la/1RdrkMP', n:'Teclado Sem Fio MX Keys Mini Logitech'},
      {u:'https://meli.la/1Qx1EEh', n:'Teclado Sem Fio Signature Slim K950 Branco'},
@@ -576,7 +628,7 @@ const CATS = [
      {u:'https://meli.la/1Y9Djdq', n:'Teclado Aula F75 Mecânico Sem Fio Tri Mode'},
      {u:'https://meli.la/1Gkykud', n:'Teclado Sem Fio Logitech Signature K650'}
    ]},
-  {id:'teclado-gamer-com-fio', nome:'Teclado Gamer Com Fio', emoji:'⌨️', cor:'#FF6B35', mlSearch:'teclado gamer mecanico rgb',
+  {id:'teclado-gamer-com-fio', nome:'Teclado Gamer Com Fio', icon:'ti-keyboard', cor:'#FF6B35', mlSearch:'teclado gamer mecanico rgb',
    produtos:[
      {u:'https://meli.la/1ivXod3', n:'Bluetooth+2.4g+com Fio Rgb Gamer Teclado Silencioso Para Pc', img:'produtos/bluetooth-2-4g-com-fio-rgb-gamer-teclado-silencioso-para-pc.jpg'},
      {u:'https://meli.la/2wUJ3fr', n:'Original Lenovo Teclado Gamer Com Led Rgb Ergonômico Com Fio', img:'produtos/original-lenovo-teclado-gamer-com-led-rgb-ergonomico-com-fio.jpg'},
@@ -589,7 +641,7 @@ const CATS = [
      {u:'https://meli.la/2xBx1Tq', n:'Teclado Pro X Tkl Rapid Gamer Com Fio Branco Logitech G', img:'produtos/teclado-pro-x-tkl-rapid-gamer-com-fio-branco-logitech-g.jpg'},
      {u:'https://meli.la/1DNzGQi', n:'Teclado Semi-mecânico Gamer Rgb Usb Shop Finos Pc Console', img:'produtos/teclado-semi-mecanico-gamer-rgb-usb-shop-finos-pc-console.jpg'}
    ]},
-  {id:'fone-sem-fio', nome:'Fone Sem Fio Bluetooth', emoji:'🎧', cor:'#E040FB', mlSearch:'fone bluetooth sem fio in ear',
+  {id:'fone-sem-fio', nome:'Fone Sem Fio Bluetooth', icon:'ti-headphones', cor:'#E040FB', mlSearch:'fone bluetooth sem fio in ear',
    produtos:[
      {u:'https://meli.la/1EHHo28', n:'Fone Ouvido Bluetooth 5.4 Sem Fio Estojo'},
      {u:'https://meli.la/1vyVnBY', n:'Fone Bluetooth Esportivos Sem'},
@@ -605,7 +657,7 @@ const CATS = [
      {u:'https://meli.la/1N2GQcc', n:'Fone Bluetooth Sem Fio Wave Buds'},
      {u:'https://meli.la/2wA6HkN', n:'Basike Fone De Ouvido Sem Fio Esportivo'}
    ]},
-  {id:'fone-com-fio', nome:'Fone Com Fio', emoji:'🎧', cor:'#00E5FF', mlSearch:'fone com fio p2 ouvido',
+  {id:'fone-com-fio', nome:'Fone Com Fio', icon:'ti-headphones', cor:'#00E5FF', mlSearch:'fone com fio p2 ouvido',
    produtos:[
      {u:'https://meli.la/2kNgG1Z', n:'Fone Baseus Encok H17 Com Fio P2'},
      {u:'https://meli.la/2P1K5Eq', n:'Fone Tae1126bk In-Ear Com'},
@@ -618,7 +670,7 @@ const CATS = [
      {u:'https://meli.la/1CpcDEH', n:'Fone Silicone Com Fio 3.5mm Com'},
      {u:'https://meli.la/1ttbaqV', n:'Fone In ear Qkz Akx Para Música'}
    ]},
-  {id:'fone-gamer', nome:'Headset Gamer', emoji:'🎧', cor:'#76FF03', mlSearch:'headset gamer microfone',
+  {id:'fone-gamer', nome:'Headset Gamer', icon:'ti-headset', cor:'#76FF03', mlSearch:'headset gamer microfone',
    produtos:[
      {u:'https://meli.la/2unSB1K', n:'Fone Gamer Headset LED RGB'},
      {u:'https://meli.la/1Rqma2o', n:'Headset Over-Ear Gamer'},
@@ -635,7 +687,7 @@ const CATS = [
      {u:'https://meli.la/1D1stad', n:'Headset Fifine Ampligame H6 RGB 7.1'},
      {u:'https://meli.la/1ZVVbE5', n:'Headset Gamer Mizar Elg 3d Surround 7.1'}
    ]},
-  {id:'cabo-usbc', nome:'Cabo USB-C', emoji:'🔌', cor:'#FFEA00', mlSearch:'cabo usb tipo c carregador',
+  {id:'cabo-usbc', nome:'Cabo USB-C', icon:'ti-usb', cor:'#FFEA00', mlSearch:'cabo usb tipo c carregador',
    produtos:[
      {u:'https://meli.la/1xR2nNz', n:'Cabo Carregador USB Tipo-C 6A Carregamento'},
      {u:'https://meli.la/1s6goJ3', n:'Cabo USB X Tipo-C Turbo 60w 2 Metros'},
@@ -644,43 +696,43 @@ const CATS = [
      {u:'https://meli.la/2z251cg', n:'Cabo USB Carregador Celular USB C Tipo-C 3'},
      {u:'https://meli.la/1rbUMsD', n:'Cabo USB Tipo-C 2 Metros Carregador Turbo'}
    ]},
-  {id:'mouse-vertical', nome:'Mouse Vertical', emoji:'🖱️', cor:'#9C6ADE', mlSearch:'mouse vertical ergonomico',
+  {id:'mouse-vertical', nome:'Mouse Vertical', icon:'ti-mouse', cor:'#9C6ADE', mlSearch:'mouse vertical ergonomico',
    produtos:[]},
-  {id:'teclado-gamer-sem-fio', nome:'Teclado Gamer Sem Fio', emoji:'⌨️', cor:'#FF4D6D', mlSearch:'teclado gamer sem fio mecanico',
+  {id:'teclado-gamer-sem-fio', nome:'Teclado Gamer Sem Fio', icon:'ti-keyboard', cor:'#FF4D6D', mlSearch:'teclado gamer sem fio mecanico',
    produtos:[]},
-  {id:'fone-gamer-sem-fio', nome:'Headset Gamer Sem Fio', emoji:'🎧', cor:'#52FF8E', mlSearch:'headset gamer sem fio',
+  {id:'fone-gamer-sem-fio', nome:'Headset Gamer Sem Fio', icon:'ti-headset', cor:'#52FF8E', mlSearch:'headset gamer sem fio',
    produtos:[]},
-  {id:'fone-gamer-com-fio', nome:'Headset Gamer Com Fio', emoji:'🎧', cor:'#76FF03', mlSearch:'headset gamer com fio',
+  {id:'fone-gamer-com-fio', nome:'Headset Gamer Com Fio', icon:'ti-headset', cor:'#76FF03', mlSearch:'headset gamer com fio',
    produtos:[]},
-  {id:'caixa-som-bluetooth', nome:'Caixa de Som Bluetooth', emoji:'🔊', cor:'#FF8C42', mlSearch:'caixa de som bluetooth portatil',
+  {id:'caixa-som-bluetooth', nome:'Caixa de Som Bluetooth', icon:'ti-speaker', cor:'#FF8C42', mlSearch:'caixa de som bluetooth portatil',
    produtos:[]},
-  {id:'caixa-som-com-fio', nome:'Caixa de Som Com Fio', emoji:'🔊', cor:'#FFA552', mlSearch:'caixa de som com fio usb',
+  {id:'caixa-som-com-fio', nome:'Caixa de Som Com Fio', icon:'ti-speaker', cor:'#FFA552', mlSearch:'caixa de som com fio usb',
    produtos:[]},
-  {id:'cabo-lightning', nome:'Cabo Lightning (iPhone)', emoji:'🔌', cor:'#C0C0C0', mlSearch:'cabo lightning iphone',
+  {id:'cabo-lightning', nome:'Cabo Lightning (iPhone)', icon:'ti-plug-connected', cor:'#C0C0C0', mlSearch:'cabo lightning iphone',
    produtos:[]},
-  {id:'power-bank', nome:'Power Bank', emoji:'🔋', cor:'#4CD964', mlSearch:'power bank carregador portatil',
+  {id:'power-bank', nome:'Power Bank', icon:'ti-battery-charging', cor:'#4CD964', mlSearch:'power bank carregador portatil',
    produtos:[]},
-  {id:'suporte-celular-carro', nome:'Suporte de Celular (Carro)', emoji:'🚗', cor:'#5AC8FA', mlSearch:'suporte celular carro',
+  {id:'suporte-celular-carro', nome:'Suporte de Celular (Carro)', icon:'ti-device-mobile', cor:'#5AC8FA', mlSearch:'suporte celular carro',
    produtos:[]},
-  {id:'pelicula-protetora', nome:'Pelicula Protetora', emoji:'📱', cor:'#34AADC', mlSearch:'pelicula protetora celular',
+  {id:'pelicula-protetora', nome:'Pelicula Protetora', icon:'ti-shield', cor:'#34AADC', mlSearch:'pelicula protetora celular',
    produtos:[]},
-  {id:'capinha-celular', nome:'Capinha de Celular', emoji:'📱', cor:'#FF2D55', mlSearch:'capa capinha celular',
+  {id:'capinha-celular', nome:'Capinha de Celular', icon:'ti-device-mobile', cor:'#FF2D55', mlSearch:'capa capinha celular',
    produtos:[]},
-  {id:'mousepad-simples', nome:'Mousepad Simples', emoji:'🖱️', cor:'#8E8E93', mlSearch:'mousepad simples',
+  {id:'mousepad-simples', nome:'Mousepad Simples', icon:'ti-square-rotated', cor:'#8E8E93', mlSearch:'mousepad simples',
    produtos:[]},
-  {id:'mousepad-gamer', nome:'Mousepad Gamer (Grande)', emoji:'🖱️', cor:'#AF52DE', mlSearch:'mousepad gamer grande rgb',
+  {id:'mousepad-gamer', nome:'Mousepad Gamer (Grande)', icon:'ti-square-rotated', cor:'#AF52DE', mlSearch:'mousepad gamer grande rgb',
    produtos:[]},
-  {id:'controle-pc-sem-fio', nome:'Controle PC (Sem Fio)', emoji:'🎮', cor:'#FF6482', mlSearch:'controle pc sem fio',
+  {id:'controle-pc-sem-fio', nome:'Controle PC (Sem Fio)', icon:'ti-device-gamepad-2', cor:'#FF6482', mlSearch:'controle pc sem fio',
    produtos:[]},
-  {id:'controle-pc-com-fio', nome:'Controle PC (Com Fio)', emoji:'🎮', cor:'#FF9500', mlSearch:'controle pc com fio usb',
+  {id:'controle-pc-com-fio', nome:'Controle PC (Com Fio)', icon:'ti-device-gamepad-2', cor:'#FF9500', mlSearch:'controle pc com fio usb',
    produtos:[]},
-  {id:'controle-celular', nome:'Controle para Celular', emoji:'🎮', cor:'#30D158', mlSearch:'controle gamepad celular',
+  {id:'controle-celular', nome:'Controle para Celular', icon:'ti-device-gamepad', cor:'#30D158', mlSearch:'controle gamepad celular',
    produtos:[]},
-  {id:'adaptador-tomada', nome:'Adaptador de Tomada', emoji:'🔌', cor:'#FFD60A', mlSearch:'adaptador tomada',
+  {id:'adaptador-tomada', nome:'Adaptador de Tomada', icon:'ti-plug', cor:'#FFD60A', mlSearch:'adaptador tomada',
    produtos:[]},
-  {id:'cabo-hdmi', nome:'Cabo HDMI', emoji:'🖥️', cor:'#64D2FF', mlSearch:'cabo hdmi 4k',
+  {id:'cabo-hdmi', nome:'Cabo HDMI', icon:'ti-cable', cor:'#64D2FF', mlSearch:'cabo hdmi 4k',
    produtos:[]},
-  {id:'hd-externo', nome:'HD Externo', emoji:'💾', cor:'#BF5AF2', mlSearch:'hd externo portatil',
+  {id:'hd-externo', nome:'HD Externo', icon:'ti-device-sd-card', cor:'#BF5AF2', mlSearch:'hd externo portatil',
    produtos:[]}
 ];
 CATS.forEach(c => { const seen = new Set(); c.produtos = c.produtos.filter(p => { if (!p.u || p.u === '#') return true; if (seen.has(p.u)) return false; seen.add(p.u); return true; }); });
@@ -711,7 +763,7 @@ function buildFilters() {
   const container = document.getElementById('filterPills');
   const total = CATS.reduce((s, c) => s + c.produtos.length, 0);
   container.innerHTML = [`<button class="pill active" data-filter="all" role="tab">⭐ Todas <span class="count">${total}</span></button>`,
-    ...CATS.map(c => `<button class="pill" data-filter="${c.id}" role="tab">${c.emoji} ${c.nome} <span class="count">${c.produtos.length}</span></button>`)].join('');
+    ...CATS.map(c => `<button class="pill" data-filter="${c.id}" role="tab">${c.nome} <span class="count">${c.produtos.length}</span></button>`)].join('');
   container.querySelectorAll('.pill').forEach(pill => {
     pill.addEventListener('click', () => {
       container.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
@@ -780,7 +832,7 @@ function buildCategories() {
       : `${cat.produtos.length} produto${cat.produtos.length>1?'s':''} disponíve${cat.produtos.length>1?'is':'l'}`;
     return `<section class="cat-section" id="${cat.id}" data-cat="${cat.id}">
       <div class="cat-header">
-        <div class="cat-icon-box" style="background:${cat.cor}18;border-color:${cat.cor}44;color:${cat.cor}">${cat.emoji}</div>
+        <div class="cat-bar" style="background:${cat.cor}"></div>
         <div><div class="cat-title">${cat.nome}</div><div class="cat-count">${contagem}</div></div>
         <div class="cat-line" style="background:${cat.cor}"></div>
       </div>
