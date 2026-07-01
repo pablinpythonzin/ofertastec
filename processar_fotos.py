@@ -77,7 +77,7 @@ CATEGORIAS = {
     "fone-sem-fio":           "Fone sem fio (bluetooth)",
     "fone-com-fio":           "Fone com fio",
     "fone-gamer-sem-fio":     "Fone gamer (headset sem fio)",
-    "fone-gamer-com-fio":     "Fone gamer (headset com fio)",
+    "fone-gamer-com-fio":     "Headset Gamer Com Fio",
     "caixa-som-bluetooth":    "Caixa de som bluetooth",
     "caixa-som-com-fio":      "Caixa de som com fio",
     "cabo-usbc":              "Cabo USB-C",

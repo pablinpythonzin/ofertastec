@@ -79,7 +79,7 @@ CATEGORIAS = {
     "Fone sem fio (bluetooth)":       ("fone-sem-fio", "Fone Sem Fio Bluetooth", "ti-headphones", "#E040FB", "fone bluetooth sem fio in ear"),
     "Fone com fio":                   ("fone-com-fio", "Fone Com Fio", "ti-headphones", "#00E5FF", "fone com fio p2 ouvido"),
     "Fone gamer (headset sem fio)":   ("fone-gamer-sem-fio", "Headset Gamer Sem Fio", "ti-headset", "#52FF8E", "headset gamer sem fio"),
-    "Fone gamer (headset com fio)":   ("fone-gamer-com-fio", "Headset Gamer Com Fio", "ti-headset", "#76FF03", "headset gamer com fio"),
+    "Headset Gamer Com Fio":          ("fone-gamer-com-fio", "Headset Gamer Com Fio", "ti-headset", "#76FF03", "headset gamer com fio"),
     "Caixa de som bluetooth":         ("caixa-som-bluetooth", "Caixa de Som Bluetooth", "ti-speaker", "#FF8C42", "caixa de som bluetooth portatil"),
     "Caixa de som com fio":           ("caixa-som-com-fio", "Caixa de Som Com Fio", "ti-speaker", "#FFA552", "caixa de som com fio usb"),
     "Cabo USB-C":                     ("cabo-usbc", "Cabo USB-C", "ti-usb", "#FFEA00", "cabo usb tipo c carregador"),

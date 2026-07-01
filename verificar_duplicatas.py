@@ -51,7 +51,7 @@ CATEGORIAS_VALIDAS = {
     "Fone sem fio (bluetooth)",
     "Fone com fio",
     "Fone gamer (headset sem fio)",
-    "Fone gamer (headset com fio)",
+    "Headset Gamer Com Fio",
     "Caixa de som bluetooth",
     "Caixa de som com fio",
     "Cabo USB-C",
